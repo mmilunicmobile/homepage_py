@@ -1,0 +1,31 @@
+---
+articles:
+  - name: My First Article!
+    docname: my_first_article.md
+    date: 2022-11-3
+
+  - name: "Gay Quiz TI: What, Why and How?"
+    docname: gay_quiz_ti.md
+    date: 2022-11-5
+
+  - name: Switching to Mooo and what this means for me and you.
+    docname: switching_to_mooo.md
+    date: 2024-5-30
+
+my_websites:
+  - name: listr.mathuml.mooo.com
+    url: http://listr.mathuml.mooo.com
+  - name: bandquiz.mathuml.mooo.com
+    url: http://bandquiz.mathuml.mooo.com
+  
+cool_websites:
+  - name: falstad.com
+    url: https://www.falstad.com/
+  - name: gregory-bard.com
+    url: https://www.gregory-bard.com/
+  - name: integral-calculator.com
+    url: https://www.integral-calculator.com/
+  - name: antenna-theory.com
+    url: https://www.antenna-theory.com/
+  - name: tutorial.math.lamar.edu
+    url: https://tutorial.math.lamar.edu/
