@@ -3,7 +3,9 @@ from app import app
 import argparse
 
 
+app.config['FREEZER_DESTINATION'] = 'docs'
 freezer = Freezer(app)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
