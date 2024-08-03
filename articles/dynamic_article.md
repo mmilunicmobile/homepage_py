@@ -38,7 +38,7 @@ The core of **deep immutability** is that you can have very deep access and abil
 
 Yes, I understand there are better ways to do stuff like this, but this was mostly a learning experience. The next major improvement to the site I will likely be trying out is going to be caching pages to clean up on load times. Theoretically these pages should load pretty fast for almost anyone's computer, but the actual rendering of them on the server side does add some time. Also, now I can officially say this site is...
 
-?[Python powered](images/python-powered.png)
+?[Python powered](/static/images/python-powered.png)
 
 ---
 """)

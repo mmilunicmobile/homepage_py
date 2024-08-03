@@ -1,6 +1,7 @@
 I debated the name of this article for some time. Eventually I settled on "Switching to Mooo and what this means for me and you."
 
 I liked my mathu.ml domain name. It had a lot of things going for it.
+
 * It was fun.
 * It was free.
 * I felt in control.
