@@ -1,5 +1,6 @@
 import yaml
 import flask
+import flask_frozen
 import markdown
 
 app = flask.Flask(__name__)
@@ -15,7 +16,7 @@ def index():
     article_info = [ 
         {
             'name': article['name'],
-            'url': flask.url_for('article', article=article['docname_html']),
+            'url': flask_frozen.relative_url_for('article', article=article['docname_html']),
         } for article in configs['articles']
     ]
     return flask.render_template('index.html.jinja', articles=article_info, my_websites=configs['my_websites'], cool_websites=configs['cool_websites'])
@@ -49,12 +50,12 @@ def article(article):
     try:
         if (article_id == 0): 
             raise IndexError
-        previous_article = flask.url_for("article", article=configs['articles'][article_id - 1]['docname_html'])
+        previous_article = flask_frozen.relative_url_for("article", article=configs['articles'][article_id - 1]['docname_html'])
     except IndexError:
         previous_article = None
 
     try:
-        next_article = flask.url_for("article", article=configs['articles'][article_id + 1]['docname_html'])
+        next_article = flask_frozen.relative_url_for("article", article=configs['articles'][article_id + 1]['docname_html'])
     except IndexError:
         next_article = None
 

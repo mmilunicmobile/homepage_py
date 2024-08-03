@@ -4,6 +4,7 @@ import argparse
 
 
 app.config['FREEZER_DESTINATION'] = 'docs'
+app.config['FREEZER_RELATIVE_URLS'] = True
 freezer = Freezer(app)
 
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{name}} - Mathum</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
     <script>window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']]
@@ -24,7 +24,7 @@
         {% else %}
         <span>Last</span>
         {% endif %}
-        <a href="/">Home</a>
+        <a href="{{url_for('index')}}">Home</a>
         {% if next_article %}
         <a href="{{next_article}}">Next</a>
         {% else %}
