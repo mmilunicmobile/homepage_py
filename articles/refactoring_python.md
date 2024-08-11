@@ -1,7 +1,7 @@
 This has been in the works for a while, but after a significant amount of refactoring, a beach vacation, a little tinkering, and a lot of obsessing over optimizations, I can finally say that my site is **fully Python powered**! 
 
 <p align="center">
-  <img src="../static/images/python-powered.png" width="200px" height = "80px" alt="a picture of the python powered logo"/>
+  <img src="../static/images/python-powered.svg" width="200px" height = "80px" alt="a picture of the python powered logo"/>
 </p>
 
 Well... *mostly Python powered*.
