@@ -1,36 +1,31 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>{{name}} - Mathum</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
-    <script>window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        }</script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-        </script>
-</head>
-
-<body>
-    {{rendered_markdown}}
-    <div class="navbar">
-        {% if previous_article %}
-        <a href="{{previous_article}}">Last</a>
-        {% else %}
-        <span>Last</span>
-        {% endif %}
-        <a href="{{url_for('index')}}">Home</a>
-        {% if next_article %}
-        <a href="{{next_article}}">Next</a>
-        {% else %}
-        <span>Next</span>
-        {% endif %}
-    </div>
-</body>
-
-</html>
+{% extends 'base.html.jinja' %}
+{% block title %}{{name}} - Mathum{% endblock %}
+{% block head %}
+{{ super() }}
+<script>window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    }</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% if script %}
+<script type="module" src="{{get_vite_path(script)}}"></script>
+{% endif %}
+<meta name="description" content="{{description}}">
+{% endblock %}
+{% block body %}
+{{rendered_markdown}}
+<div class=" navbar">
+    {% if previous_article %}
+    <a href="{{previous_article}}">Last</a>
+    {% else %}
+    <span>Last</span>
+    {% endif %}
+    <a href="{{url_for('index')}}">Home</a>
+    {% if next_article %}
+    <a href="{{next_article}}">Next</a>
+    {% else %}
+    <span>Next</span>
+    {% endif %}
+</div>
+{% endblock %}
