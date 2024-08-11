@@ -19,19 +19,19 @@ articles:
     description: An article about refactoring my website to use Flask and SolidJS instead of PHP.
 
 my_websites:
-  - name: listr.mathuml.mooo.com
-    url: http://listr.mathuml.mooo.com
+  - name: "Listr: A Sorting App"
+    url: https://mmilunicmobile.github.io/listr/
   - name: bandquiz.mathuml.mooo.com
     url: http://bandquiz.mathuml.mooo.com
   
 cool_websites:
   - name: falstad.com
     url: https://www.falstad.com/
-  - name: gregory-bard.com
-    url: https://www.gregory-bard.com/
-  - name: integral-calculator.com
+  - name: gregorybard.com
+    url: http://gregorybard.com/home.html
+  - name: Integral Calculator
     url: https://www.integral-calculator.com/
-  - name: antenna-theory.com
+  - name: Antenna-Theory.com
     url: https://www.antenna-theory.com/
-  - name: tutorial.math.lamar.edu
+  - name: Paul's Online Notes
     url: https://tutorial.math.lamar.edu/
