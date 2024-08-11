@@ -1,51 +1,48 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Mathum</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
-</head>
-
-<body>
-    <h1>
-        This is my (dodgy) homepage!
-    </h1>
-    <p>
-        Who am I? Beats me. I kinda just like making stuff and was too lazy to set up Hugo
-        so I made my webpage this way. You could check out some of the articles I've written.
-        The voices say they're pretty good. Also, all my websites are now under one domain and
-        linked in one spot. Now you won't need to go testing links for hours to see if a site
-        is running!
-    </p>
-    <h3>
-        Cool articles I've written:
-    </h3>
-    <ul>
-        {% for article in articles %}
-        <li><a href="{{article.url}}">{{article.name}}</a></li>
-        {% endfor %}
-    </ul>
-    <h3>
-        Websites I've made:
-    </h3>
-    <ul>
-        {% for website in my_websites %}
-        <li><a href="{{website.url}}">{{website.name}}</a></li>
-        {% endfor %}
-    </ul>
-    <h3>
-        Cooler websites I haven't made:
-    </h3>
-    <ul>
-        {% for website in cool_websites %}
-        <li><a href="{{website.url}}">{{website.name}}</a></li>
-        {% endfor %}
-    </ul>
-    <p>
-        This is an afternote, but this website was heavily inspired by the lack of a framework
-        on older sites. I hope to maintain a very simplistic and minimalist look on this website
-        at least just because I like how it looks.
-</body>
-
-</html>
+{% extends 'base.html.jinja' %}
+{% block title %}Mathum{% endblock %}
+{% block head %}
+{{ super() }}
+<meta name="description"
+    content="Mathum is a collection of articles written about math programming and anything in between.">
+{% endblock %}
+{% block body %}
+<h1>
+    This is my (dodgy) homepage!
+</h1>
+<p>
+    Who am I? Beats me. I kinda just like making stuff and was too lazy to set up Hugo
+    so I made my webpage this way. You could check out some of the articles I've written.
+    The voices say they're pretty good. Also, all my websites are now under one domain and
+    linked in one spot. Now you won't need to go testing links for hours to see if a site
+    is running!
+</p>
+<h2>
+    Cool articles I've written:
+</h2>
+<ul>
+    {% for article in articles %}
+    <li><a href="{{article.url}}">{{article.name}}</a></li>
+    {% endfor %}
+</ul>
+<h2>
+    Websites I've made:
+</h2>
+<ul>
+    {% for website in my_websites %}
+    <li><a href="{{website.url}}">{{website.name}}</a></li>
+    {% endfor %}
+</ul>
+<h2>
+    Cooler websites I haven't made:
+</h2>
+<ul>
+    {% for website in cool_websites %}
+    <li><a href="{{website.url}}">{{website.name}}</a></li>
+    {% endfor %}
+</ul>
+<p>
+    This is an afternote, but this website was heavily inspired by the lack of a framework
+    on older sites. I hope to maintain a very simplistic and minimalist look on this website
+    at least just because I like how it looks.
+</p>
+{% endblock %}

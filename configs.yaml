@@ -12,6 +12,12 @@ articles:
     docname: switching_to_mooo.md
     date: 2024-5-30
 
+  - name: "Refactoring: How I way overdid it switching to Flask"
+    docname: refactoring_python.md
+    date: 2024-8-10
+    script: src/pages/refactoringPython.jsx
+    description: An article about refactoring my website to use Flask and SolidJS instead of PHP.
+
 my_websites:
   - name: listr.mathuml.mooo.com
     url: http://listr.mathuml.mooo.com
