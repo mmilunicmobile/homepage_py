@@ -19,6 +19,8 @@ const CustomQuote = (props, values) => {
   const quote = () => quotes[index() % quotes.length];
   const increment = () => setIndex((prev) => (prev + 1));
 
+  const name = props.name
+
   if (!import.meta.env.SSR) {
     const { element } = values
     element.renderRoot.innerHTML = ""
@@ -29,7 +31,7 @@ const CustomQuote = (props, values) => {
       "-webkit-user-select": "none",
       "user-select": "none"
     }} onclick={increment} >
-      {quote()}
+      {quote()}{name}
     </div >
   );
 };

@@ -11,6 +11,7 @@ articles:
   - name: Switching to Mooo and what this means for me and you.
     docname: switching_to_mooo.md
     date: 2024-5-30
+    # use_mathjax: true
 
   - name: "Refactoring: How I way overdid it switching to Flask"
     docname: refactoring_python.md

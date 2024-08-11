@@ -1,0 +1,2 @@
+# Mathum
+This is my super sketchy homepage! You can look around the site to understand how it works a bit. It is hosted at [mathuml.mooo.com](https://mathuml.mooo.com) through GitHub Pages. The article to read to understand at least a bit about what I'm doing with this site is [this article about refactoring](https://mathuml.mooo.com/article/refactoring_python.html).

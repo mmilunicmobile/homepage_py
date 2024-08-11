@@ -4,7 +4,7 @@ import { element_name, element, CountQuote } from '../web-components/customQuote
 import CodeQuote from '../web-components/customQuote.jsx';
 
 if (!import.meta.env.SSR) {
-    customElement(element_name, element);
+    customElement(element_name, { "name": "" }, element);
     customElement("code-quote", CodeQuote);
     customElement("count-quote", CountQuote);
 }

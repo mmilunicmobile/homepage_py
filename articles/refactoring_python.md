@@ -16,7 +16,7 @@ The articles are still stored as Markdown, but the config file for the site is n
 
 I also hooked up the backend to be able to integrate [SolidJS](https://docs.solidjs.com/) with the help of [solid-element](https://github.com/solidjs/solid/tree/main/packages/solid-element) so I am able to simply integrate custom HTML web components wherever I want in my pages (including in Markdown). That allows me to do cool things like making this quote cycle through different famous quotes when you click/tap on it.
 
-> <custom-quote/>
+> <custom-quote></custom-quote>
 
 See! Isn't that cool! By using SolidJS and solid-element I can also keep it very, very lightweight (and I get to say I use SolidJS).
 
@@ -26,7 +26,7 @@ The issue is, I wasn't quite satisfied with my web components because they took 
 
 The code on this page would look something like this:
 
-<code-quote/>
+<code-quote></code-quote>
 
 (*Do you see how that part's reactive too?! Its sooooo cool.*)
 
@@ -34,7 +34,7 @@ But it still wasn't enough.
 
 _I wanted it to be better._
 
-One small issue that still remained (at least in my head) was that if you were to make a more complicated component that it would start to get tedious to constantly keep copying back and forth the code for the component. Wouldn't it be nice if you could have Flask or Python figure out how to replace a simple tag like `<code-quote/>` with a fully server side rendered component? Yes. It would be very nice. This lead to me spending hours and hours trying to figure out how to use the Vite build tool to somehow transmit built components to Python. Eventually I figured out that I could use the built in server side rendering part of SolidJS to render the components in a Node routine. This routine would then store a JSON file into a dictionary for each JavaScript file and then inside of those a dictionary with each filled out component.
+One small issue that still remained (at least in my head) was that if you were to make a more complicated component that it would start to get tedious to constantly keep copying back and forth the code for the component. Wouldn't it be nice if you could have Flask or Python figure out how to replace a simple tag like `<custom-quote></custom-quote>` with a fully server side rendered component? Yes. It would be very nice. This lead to me spending hours and hours trying to figure out how to use the Vite build tool to somehow transmit built components to Python. Eventually I figured out that I could use the built in server side rendering part of SolidJS to render the components in a Node routine. This routine would then store a JSON file into a dictionary for each JavaScript file and then inside of those a dictionary with each filled out component.
 
 All this so I could get a straight 0 on my Cumulative Layout Shift from Lighthouse. 😭
 

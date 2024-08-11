@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
     
-<script>window.MathJax = {
+
+<script>MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            inlineMath: [['$', '$']],
+            processEscapes: false
         }
     }</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 <meta name="description" content="Mathum is a collection of articles written about math programming and anything inbetween. This is an article on it.">
 
@@ -34,7 +37,7 @@
 <p>Other than the markdown file processing, the only code is just PHP to find all of the articles in an XML file and then publish only the ones I have listed with the published attribute. Eventually, all this code will hopefully be open source so you readers can point out all of my security flaws and detail exactly how you would hack this website to bits.</p>
 <h2>Conclusion</h2>
 <p>Honestly, for a first article, this was kind of trash. Check out my other web projects or something like that. Hopefully when you are reading this, they will all be listed under the same domain that way they act nicely together.</p>
-<div class=" navbar">
+<nav class=" navbar">
     
     <span>Last</span>
     
@@ -42,8 +45,8 @@
     
     <a href="gay_quiz_ti.html">Next</a>
     
-</div>
+</nav>
 
 </body>
-
+<div style="height: 24px"></div>
 </html>

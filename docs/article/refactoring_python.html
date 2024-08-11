@@ -1,38 +1,23 @@
 <!DOCTYPE HTML>
+
 <html lang="en">
-
 <head>
-    
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Refactoring: How I way overdid it switching to Flask - Mathum</title>
-    <link rel="stylesheet" href="../static/styles.css">
-    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
-    
-<script>window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
-        }
-    }</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<script type="module" src="../assets/page0-AmIcC4Z0.js"></script>
-
-<meta name="description" content="An article about refactoring my website to use Flask and SolidJS instead of PHP.">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Refactoring: How I way overdid it switching to Flask - Mathum</title>
+<link href="../static/styles.css" rel="stylesheet"/>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<script src="../assets/page0-wwWJtz4q.js" type="module"></script>
+<meta content="An article about refactoring my website to use Flask and SolidJS instead of PHP." name="description"/>
 </head>
-
 <body>
-    
 <h1>Refactoring: How I way overdid it switching to Flask</h1>
 <p>2024-8-10</p>
-<hr />
+<hr/>
 <p>This has been in the works for a while, but after a significant amount of refactoring, a beach vacation, a little tinkering, and a lot of obsessing over optimizations, I can finally say that my site is <strong>fully Python powered</strong>! </p>
 <p align="center">
-  <img src="../static/images/python-powered.png" width="200px" height = "80px" alt="a picture of the python powered logo"/>
+<img alt="a picture of the python powered logo" height="80px" src="../static/images/python-powered.png" width="200px"/>
 </p>
-
 <p>Well... <em>mostly Python powered</em>.</p>
 <h2>Structure</h2>
 <p>The site is now composed of a <a href="https://palletsprojects.com/p/flask/">Flask backend</a> which combined with <a href="https://frozen-flask.readthedocs.io/en/latest/">Frozen-Flask</a> allows me to properly render my pages statically. This way, not only do I not have to rerender each article every time it is accessed, but I can also deploy to a solution like <a href="https://pages.github.com/">Github Pages</a> and have my website be easily accessed 24/7 without having to keep a Raspberry Pi running in my basement. 😃</p>
@@ -40,31 +25,26 @@
 <h2>One more thing...</h2>
 <p>I also hooked up the backend to be able to integrate <a href="https://docs.solidjs.com/">SolidJS</a> with the help of <a href="https://github.com/solidjs/solid/tree/main/packages/solid-element">solid-element</a> so I am able to simply integrate custom HTML web components wherever I want in my pages (including in Markdown). That allows me to do cool things like making this quote cycle through different famous quotes when you click/tap on it.</p>
 <blockquote>
-<p><custom-quote data-hk=00 ><template data-hk=01 shadowrootmode="open"><div data-hk=020 style="-webkit-user-select:none;user-select:none">"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela</div></template></custom-quote></p>
+<p><custom-quote><template data-hk="01" shadowrootmode="open"><div data-hk="020" style="-webkit-user-select:none;user-select:none"><!--$-->"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela<!--/--><!--$--><!--/--></div></template></custom-quote></p>
 </blockquote>
 <p>See! Isn't that cool! By using SolidJS and solid-element I can also keep it very, very lightweight (and I get to say I use SolidJS).</p>
 <h2>Why this is actually a mess</h2>
 <p>The issue is, I wasn't quite satisfied with my web components because they took a few milliseconds to load. <em>Not that this is a big deal</em>, but it did cause some page rearangement for a few tenths of a second. And this page drifting is <strong>unnaceptable</strong>. (So I guess it is kinda a big deal.) My fix was to figure out that I can just embed a <code>&lt;template shadowrootmode="open"&gt;contents...&lt;\template&gt;</code> with whatever element I was eventually going to be creating inside the markdown. This made it so there was no more page shifting. </p>
 <p>The code on this page would look something like this:</p>
-<p><code-quote data-hk=00 ><template data-hk=01 shadowrootmode="open"><code data-hk=020>&lt;template shadowrootmode="open">&lt;div>"<!--$-->"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela<!--/-->"&lt;/div>&lt;/template></code></template></code-quote></p>
+<p><code-quote><template data-hk="01" shadowrootmode="open"><code data-hk="020">&lt;template shadowrootmode="open"&gt;&lt;div&gt;"<!--$-->"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela<!--/-->"&lt;/div&gt;&lt;/template&gt;</code></template></code-quote></p>
 <p>(<em>Do you see how that part's reactive too?! Its sooooo cool.</em>)</p>
 <p>But it still wasn't enough.</p>
 <p><em>I wanted it to be better.</em></p>
-<p>One small issue that still remained (at least in my head) was that if you were to make a more complicated component that it would start to get tedious to constantly keep copying back and forth the code for the component. Wouldn't it be nice if you could have Flask or Python figure out how to replace a simple tag like <code>&lt;code-quote/&gt;</code> with a fully server side rendered component? Yes. It would be very nice. This lead to me spending hours and hours trying to figure out how to use the Vite build tool to somehow transmit built components to Python. Eventually I figured out that I could use the built in server side rendering part of SolidJS to render the components in a Node routine. This routine would then store a JSON file into a dictionary for each JavaScript file and then inside of those a dictionary with each filled out component.</p>
+<p>One small issue that still remained (at least in my head) was that if you were to make a more complicated component that it would start to get tedious to constantly keep copying back and forth the code for the component. Wouldn't it be nice if you could have Flask or Python figure out how to replace a simple tag like <code>&lt;custom-quote&gt;&lt;/custom-quote&gt;</code> with a fully server side rendered component? Yes. It would be very nice. This lead to me spending hours and hours trying to figure out how to use the Vite build tool to somehow transmit built components to Python. Eventually I figured out that I could use the built in server side rendering part of SolidJS to render the components in a Node routine. This routine would then store a JSON file into a dictionary for each JavaScript file and then inside of those a dictionary with each filled out component.</p>
 <p>All this so I could get a straight 0 on my Cumulative Layout Shift from Lighthouse. 😭</p>
-<p>Anyway, thanks for reading my article. I hope you enjoy your day and I hope you enjoyed clicking/tapping on the quote <count-quote data-hk=00 ><template data-hk=01 shadowrootmode="open"><code data-hk=020>&lt;template shadowrootmode="open">&lt;div>"<!--$-->"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela<!--/-->"&lt;/div>&lt;/template></code></template></count-quote>!</p>
-<hr />
+<p>Anyway, thanks for reading my article. I hope you enjoy your day and I hope you enjoyed clicking/tapping on the quote <count-quote><template data-hk="01" shadowrootmode="open"><code data-hk="020">&lt;template shadowrootmode="open"&gt;&lt;div&gt;"<!--$-->"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela<!--/-->"&lt;/div&gt;&lt;/template&gt;</code></template></count-quote>!</p>
+<hr/>
 <p>You should be able to find all the code for this on my <a href="https://github.com/mmilunicmobile/homepage_py">GitHub page</a> for it. Don't do what I did though. It's not a good example.</p>
-<div class=" navbar">
-    
-    <a href="switching_to_mooo.html">Last</a>
-    
-    <a href="../index.html">Home</a>
-    
-    <span>Next</span>
-    
-</div>
-
+<nav class="navbar">
+<a href="switching_to_mooo.html">Last</a>
+<a href="../index.html">Home</a>
+<span>Next</span>
+</nav>
 </body>
-
+<div style="height: 24px"></div>
 </html>

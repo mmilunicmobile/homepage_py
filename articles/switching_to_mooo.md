@@ -14,6 +14,6 @@ For the latter of those, I am highly opposed to ever truly doing something like 
 
 On the other hand, Freenom was a bit of a scam hosting service. They were very difficult to actually use properly, and also (allegedly) would claim domains if they got too popular. Eventually, due to their overall scammy behavior, they got their liscence as a registrar revoked and can now no longer register domains. 
 Additionally, in the big scheme of things, TLDs are really not that expensive.
- Most of them can be found for a solid $20/year which, given a minimum wage of \$7.25 in the US is only around three hours of work.
+ Most of them can be found for a solid <span>$<span>20/year which, given a minimum wage of <span>$<span>7.25 (at the tme of writing) in the US is only around three hours of work.
 
 I personally am moving onto [FreeDNS](https://freedns.afraid.org/) with this new domain. All my sites should be accessible soon through this new domain. Basically "mathu.ml" will just turn into "mathuml.mooo.com". Basically, nothing changes. In the long term I may buy an actual domain, but only time will tell.
